@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author">
+<meta name="copyright">
+<title></title>
+<style>
+#box{margin-bottom:50px;}
+body{background:#FFF;text-align:center; padding-top:100px; font-size:50px; font-weight:bold;}
+#box img{width:80px;border:none;}
+em{color:red;font-style:normal;}
+</style>
+<script>
+window.onload=function (){
+    var oBox=document.getElementById('box');
+	var aImg=oBox.getElementsByTagName('img');
+    var oE=document.getElementById('em1');
+    var aWeek=['日','一','二','三','四','五','六'];
+	tick();
+	setInterval(tick,1000)
+	
+	function toDub(n){
+		return n<10?'0'+n: ''+n;
+	}
+	
+	function tick(){
+		var oDate=new Date();
+		var year=oDate.getFullYear();
+		var month=oDate.getMonth();
+		var date=oDate.getDate();
+		var h=oDate.getHours();
+		var m=oDate.getMinutes();
+		var s=oDate.getSeconds();
+        var w=oDate.getDay();
+		var str=year+toDub(month+1)+toDub(date)+toDub(h)+toDub(m)+toDub(s);
+		for(var i=0; i<aImg.length;i++){
+			aImg[i].src='images/'+str.charAt(i)+'.jpg';
+	}
+
+	oE.innerHTML=aWeek[w];
+	}
+};
+</script>
+</head>
+
+<body>
+    <div id="box">
+        <img src="images/0.jpg" alt=""/><img src="images/0.jpg" /><img src="images/0.jpg" /><img src="images/5.jpg" />年
+    
+        <img src="images/0.jpg" alt=""/><img src="images/0.jpg" />月
+        
+        <img src="images/0.jpg" alt=""/><img src="images/0.jpg" />日
+        <br /><br /><br />
+        <img src="images/0.jpg" alt=""/><img src="images/0.jpg" />时
+        
+        <img src="images/0.jpg" alt=""/><img src="images/0.jpg" />分
+        
+        <img src="images/0.jpg" alt=""/><img src="images/0.jpg" />秒
+    </div>
+	
+
+    <img src="images/wek.jpg" alt=""/>
+    <em id="em1"></em>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
